@@ -49,7 +49,7 @@ main{overflow-x:clip}
 .bt b{font-size:16px;font-family:var(--font-head)}
 .bt small{font-size:11.5px;color:var(--muted);font-family:var(--mono);letter-spacing:.02em;margin-top:2px}
 .nav{display:flex;gap:2px;margin-left:auto}
-.nav a{position:relative;padding:8px 11px;border-radius:8px;text-decoration:none;font-size:14.5px;color:var(--muted);transition:color .2s,background-color .2s}
+.nav a{position:relative;white-space:nowrap;padding:8px 10px;border-radius:8px;text-decoration:none;font-size:14.5px;color:var(--muted);transition:color .2s,background-color .2s}
 .nav a i{display:none;font-style:normal}
 .nav a:hover,.nav a.cur{color:var(--ink);background:var(--nav-hover,color-mix(in srgb,var(--ink) 6%,transparent))}
 .side-meta{display:none}
@@ -66,7 +66,7 @@ main{overflow-x:clip}
 .sw-d{background:conic-gradient(#1D1D1F 0 50%,#F5F5F7 0)}
 .hire{padding:10px 16px}
 #prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--accent);z-index:70}
-@media (max-width:1180px){.nav a:nth-child(3),.nav a:nth-child(5){display:none}}
+@media (max-width:1280px){.nav a:nth-child(3),.nav a:nth-child(5){display:none}}
 @media (max-width:1000px){.nav{display:none}.looks{margin-left:auto}}
 @media (max-width:640px){.bfirst{display:none}.sw{width:18px;height:18px}.looks{gap:2px;padding:3px}.looks button{padding:3px}.mark{width:34px;height:34px;font-size:13px}.bt small{display:none}.looks-lbl{display:none}.looks button[aria-pressed="true"] em{display:none}.looks button[aria-pressed="true"]{padding-right:4px}.hire{display:none}.hdr-in{gap:10px;height:64px}.bt b{font-size:15px}}
 
@@ -371,11 +371,42 @@ main{overflow-x:clip}
 #wipe.out{opacity:0;transition:opacity .4s}
 .fx{display:none}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* ===== boot loader ===== */
+#boot{position:fixed;inset:0;z-index:400;display:grid;place-items:center;padding:24px;background:var(--boot-bg,#0B0F14);color:#E5E7EB;transition:transform .7s cubic-bezier(.7,0,.2,1),opacity .7s}
+#boot.gone{transform:translateY(-100%);opacity:.4;pointer-events:none}
+.boot-box{width:min(580px,100%);font-size:14.5px;line-height:1.95}
+#boot .ln{opacity:0;transform:translateX(-8px);transition:opacity .22s,transform .22s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#boot .ln.on{opacity:1;transform:none}
+#boot .dim{color:#9CA3AF}
+#boot .okk{color:var(--boot-accent,#22C55E);font-weight:600}
+#boot .barw{height:4px;background:rgba(255,255,255,.12);border-radius:4px;margin-top:20px;overflow:hidden}
+#boot .barf{height:100%;width:0;background:var(--boot-accent,#22C55E);transition:width .25s ease;box-shadow:0 0 12px var(--boot-accent,#22C55E)}
+#boot .pct{margin-top:10px;display:flex;justify-content:space-between;color:#9CA3AF;font-size:13px}
+#boot button{background:none;border:0;color:#9CA3AF;font:inherit;cursor:pointer;text-decoration:underline}
+body.booting{overflow:hidden}
+/* ===== YAML terminal everywhere ===== */
+.term{display:block}
+.term .k{color:var(--term-dim,#94A3B8)}
+.term .ok{color:var(--term-ok,var(--accent))}
+.term .c{color:var(--term-dim,#94A3B8);opacity:.7}
+.term .pr{color:var(--term-ok,var(--accent))}
+.tcur{display:inline-block;width:8px;height:1.05em;background:var(--term-ok,var(--accent));vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+#tout{opacity:0;transition:opacity .5s ease}
+#tout.show{opacity:1}
+.statcard{display:none}
 /* ================= LOOK A: CLEAN LIGHT ================= */
 html[data-look="a"]{--bg:#F8FAFC;--surface:#FFFFFF;--ink:#0F172A;--ink-soft:#334155;--muted:#526079;--line:#E2E8F0;--line-strong:#CBD5E1;--accent:#1E40AF;--accent-strong:#1E3A8A;--accent-2:#2563EB;--accent-3:#F59E0B;--accent-ink:#fff;--h1-em:#2563EB;
   --font:"Plus Jakarta Sans",system-ui,sans-serif;--font-head:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--track:-0.03em;
   --hdr-bg:rgba(255,255,255,.85);--pill-bg:#ECFDF5;--pill-ink:#15803D;--shadow:0 30px 60px -32px rgba(30,58,138,.35);--shadow-sm:0 2px 8px rgba(15,23,42,.04);
   --r:16px;--r-lg:20px;--expect-bg:#0F172A;--expect-ink:#fff;--expect-accent:#FBBF24;--expect-btn-ink:#0F172A;--tile-bg:#F8FAFC;--input-bg:#F8FAFC}
+html[data-look="a"]{--boot-bg:#0F172A;--boot-accent:#60A5FA;--term-bg:#0F172A;--term-ink:#E2E8F0;--term-dim:#94A3B8;--term-ok:#4ADE80}
+html[data-look="a"] .term{border-color:#1E293B;box-shadow:0 40px 80px -40px rgba(30,58,138,.55)}
+html[data-look="a"] .term-bar{border-color:#1E293B;color:#94A3B8}
+html[data-look="a"] .term-bar i:nth-child(1){background:#F87171}html[data-look="a"] .term-bar i:nth-child(2){background:#FBBF24}html[data-look="a"] .term-bar i:nth-child(3){background:#34D399}
+html[data-look="a"] .stats{display:grid;gap:14px;margin-top:48px}
+html[data-look="a"] .stats div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(15,23,42,.04)}
+html[data-look="a"] .stats b{color:#1E3A8A}
 html[data-look="a"] .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 html[data-look="a"] .contact{background:#0F172A;--ink:#fff;--ink-soft:#E2E8F0;--muted:#CBD5E1;--surface:#fff;color:#fff}
 html[data-look="a"] .contact .cform{--ink:#0F172A;--muted:#526079;--line:#E2E8F0;color:#0F172A}
@@ -389,8 +420,7 @@ html[data-look="b"]{--bg:#050807;--surface:#08120D;--ink:#E7FBEF;--ink-strong:#F
   --hdr-bg:#06100A;--pill-bg:#0B2416;--pill-ink:#4ADE80;--pill-line:#14532D;--shadow:0 0 0 1px #052E16,0 30px 60px -30px rgba(34,197,94,.3);--shadow-sm:none;
   --r:8px;--r-lg:10px;--btn-r:8px;--mark-r:6px;--in-r:6px;--expect-bg:#07160E;--expect-ink:#E7FBEF;--term-bg:#07120C;--term-ink:#D1FAE5;--tile-bg:#06100A;--input-bg:#040A07;--nav-hover:#0B2416}
 html[data-look="b"] body{font-size:16.5px;background-image:linear-gradient(rgba(34,197,94,.045) 1px,transparent 1px);background-size:100% 28px}
-html[data-look="b"] .term{display:block}
-html[data-look="b"] .statcard{display:none}
+html[data-look="b"]{--boot-bg:#050807;--boot-accent:#22C55E;--term-dim:#6EBF8B;--term-ok:#22C55E}
 html[data-look="b"] .whoami{display:block}
 html[data-look="b"] .pill{display:none}
 html[data-look="b"] .stats{display:grid;gap:10px}
@@ -444,7 +474,9 @@ html[data-look="c"] .btn-primary{background-size:200% 100%;animation:shine 5s li
 @keyframes shine{to{background-position:-200% 0}}
 html[data-look="c"] .hero{text-align:center;padding-top:90px}
 html[data-look="c"] .hero-grid{grid-template-columns:1fr;max-width:920px;margin:0 auto}
-html[data-look="c"] .hero-side{display:none}
+html[data-look="c"]{--boot-bg:#0B0820;--boot-accent:#A78BFA;--term-bg:rgba(10,6,30,.75);--term-ink:#EDE9FE;--term-dim:#A5A0D6;--term-ok:#22D3EE}
+html[data-look="c"] .hero-side{max-width:680px;width:100%;margin:10px auto 0;text-align:left}
+html[data-look="c"] .term{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(255,255,255,.15);box-shadow:0 0 60px -10px rgba(139,92,246,.55)}
 html[data-look="c"] .hero h1{font-size:clamp(44px,7.5vw,92px);line-height:1}
 html[data-look="c"] .hero h1 em{display:block;background:linear-gradient(90deg,#C4B5FD,#22D3EE,#F472B6,#C4B5FD);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 7s linear infinite}
 @keyframes gshift{to{background-position:-250% 0}}
@@ -478,7 +510,12 @@ html[data-look="d"] .kicker .pr{display:none}
 html[data-look="d"] .mark{background:#1D1D1F;color:#fff}
 html[data-look="d"] .hero{text-align:center;padding:110px 0 30px}
 html[data-look="d"] .hero-grid{grid-template-columns:1fr;max-width:940px;margin:0 auto}
-html[data-look="d"] .hero-side,html[data-look="d"] .roles{display:none}
+html[data-look="d"]{--boot-bg:#1D1D1F;--boot-accent:#2997FF;--term-bg:#1D1D1F;--term-ink:#F5F5F7;--term-dim:#A1A1A6;--term-ok:#30D158}
+html[data-look="d"] .roles{display:none}
+html[data-look="d"] .hero-side{max-width:700px;width:100%;margin:20px auto 0;text-align:left}
+html[data-look="d"] .term{border:0;border-radius:18px;box-shadow:0 40px 80px -30px rgba(0,0,0,.35)}
+html[data-look="d"] .term-bar{border-color:#2C2C2E}
+html[data-look="d"] .term-bar i:nth-child(1){background:#FF5F57}html[data-look="d"] .term-bar i:nth-child(2){background:#FEBC2E}html[data-look="d"] .term-bar i:nth-child(3){background:#28C840}
 html[data-look="d"] .hero h1{font-size:clamp(46px,7.5vw,92px);line-height:1.02}
 html[data-look="d"] .hero h1 em{display:block}
 html[data-look="d"] .lede{margin-left:auto;margin-right:auto;font-size:21px}
@@ -510,6 +547,18 @@ html[data-look="d"] .sec.alt{background:#F5F5F7}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div id="boot" class="mono" role="status" aria-live="polite">
+  <div class="boot-box">
+    <div class="ln dim">$ helm install qasim ./portfolio --namespace production</div>
+    <div class="ln"><span class="okk">[ OK ]</span> Pulling image qasim/devops:latest</div>
+    <div class="ln"><span class="okk">[ OK ]</span> Connecting clusters: aws, azure, gcp</div>
+    <div class="ln"><span class="okk">[ OK ]</span> Scheduling pods on 70+ nodes</div>
+    <div class="ln"><span class="okk">[ OK ]</span> Readiness probes passed · uptime 99.9%</div>
+    <div class="ln"><span class="okk">STATUS:</span> deployed ✓</div>
+    <div class="barw"><div class="barf" id="barf"></div></div>
+    <div class="pct"><span id="pct">0%</span><button type="button" id="skip">Skip →</button></div>
+  </div>
+</div>
 <div id="wipe" aria-hidden="true"></div>
 <div class="fx" aria-hidden="true"><i></i><i></i><i></i></div>
 
@@ -573,18 +622,24 @@ html[data-look="d"] .sec.alt{background:#F5F5F7}
         </div>
         <div class="term mono" role="img" aria-label="Terminal summary: DevOps and Kubernetes engineer at Bank AL Habib, 4+ years, AWS, Azure and GCP, 70+ servers at 99.9% uptime, open to work.">
           <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>qasim@prod: ~</span></div>
-<pre aria-hidden="true"><span class="pr">$</span> kubectl get engineer qasim -o yaml
+<pre aria-hidden="true"><span class="pr">$</span> <span id="cmd"></span><span class="tcur" id="tcur"></span>
+<span id="tout"><span class="k">apiVersion:</span> v1
 <span class="k">kind:</span> Engineer
+<span class="k">metadata:</span>
+  <span class="k">name:</span> muhammad-qasim-sultani
+  <span class="k">location:</span> karachi, pakistan
 <span class="k">spec:</span>
   <span class="k">role:</span> devops-kubernetes-engineer
   <span class="k">current:</span> bank-al-habib
   <span class="k">experience:</span> 4y+
   <span class="k">clouds:</span> [aws, azure, gcp]
-  <span class="k">platform:</span> [rke2, eks, aks, helm]
+  <span class="k">platform:</span> [rke2, eks, aks, helm, terraform]
+  <span class="k">pipelines:</span> [argocd, jenkins, gitlab, gh-actions]
 <span class="k">status:</span>
   <span class="k">servers:</span> 70+
   <span class="k">uptime:</span> <span class="ok">99.9%</span>
-  <span class="k">availability:</span> <span class="ok">open-to-work</span></pre>
+  <span class="k">availability:</span> <span class="ok">open-to-work</span>
+  <span class="c"># full-time and consulting</span></span></pre>
         </div>
       </div>
     </div>
@@ -803,6 +858,18 @@ var IMGS={"app": "data:image/webp;base64,UklGRkhWAABXRUJQVlA4IDxWAAAwmAGdASpwA+8
 (function(){
 "use strict";
 var root=document.documentElement, reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* ---- boot loader + terminal typing ---- */
+(function(){var body=document.body, boot=document.getElementById("boot"), started=false;
+  body.classList.add("booting");
+  function typeTerm(){var text="kubectl get engineer qasim -o yaml", cmd=document.getElementById("cmd"), out=document.getElementById("tout"), cur=document.getElementById("tcur");
+    function done(){out.classList.add("show");cur.style.display="none";}
+    if(reduce){cmd.textContent=text;done();return;} var i=0;(function step(){cmd.textContent=text.slice(0,++i);if(i<text.length)setTimeout(step,38+Math.random()*40);else setTimeout(done,300);})();}
+  function start(){if(started)return;started=true;boot.classList.add("gone");body.classList.remove("booting");setTimeout(function(){boot.style.display="none";},750);setTimeout(typeTerm,400);}
+  if(reduce){boot.style.display="none";start();return;}
+  var lines=boot.querySelectorAll(".ln"), bar=document.getElementById("barf"), pct=document.getElementById("pct"), n=0;
+  document.getElementById("skip").addEventListener("click",start);
+  (function next(){if(started)return;if(n<lines.length){lines[n].classList.add("on");n++;var p=Math.round(n/lines.length*100);bar.style.width=p+"%";pct.textContent=p+"%";setTimeout(next,n===1?320:260);}else setTimeout(start,380);})();
+})();
 /* images */
 document.querySelectorAll("img[data-img]").forEach(function(i){i.src=IMGS[i.getAttribute("data-img")];i.decoding="async";});
 
