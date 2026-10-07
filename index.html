@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-skin="blueprint">
 <head>
 <meta charset="utf-8">
-<script>try{var k=localStorage.getItem("skin");if(k==="neon"||k==="blueprint")document.documentElement.setAttribute("data-skin",k);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Muhammad Qasim Sultani · DevOps & Kubernetes Engineer</title>
 <meta name="description" content="DevOps and Kubernetes Engineer at Bank AL Habib. 4+ years running production platforms across AWS, Azure, and GCP. Open to full-time roles and consulting.">
-<meta name="theme-color" content="#0B1220">
+<meta name="theme-color" content="#0D3B85">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Muhammad Qasim Sultani · DevOps & Kubernetes Engineer">
 <meta property="og:description" content="4+ years running production Kubernetes and cloud platforms across AWS, Azure, and GCP. 99.9% uptime on 70+ servers. Open to new roles and consulting.">
@@ -578,41 +577,6 @@ body.ready .avail{animation-play-state:running}
 #skinwipe.go{clip-path:circle(150% at var(--wx,90%) var(--wy,30px))}
 #skinwipe.out{opacity:0;transition:opacity .45s ease}
 
-/* ================= NEON ================= */
-:root[data-skin="neon"]{
-  --bg:#07060F;--surface:rgba(255,255,255,.045);--ink:#F2F0FF;--muted:#A9A3C9;--line:rgba(255,255,255,.10);
-  --accent:#A78BFA;--accent-ink:#0A0814;--neon:#22D3EE;
-  --band:#0A0818;--band-2:rgba(255,255,255,.045);--band-ink:#F2F0FF;--band-muted:#A9A3C9;--band-line:rgba(255,255,255,.10);
-  --term:#0D0A1F;--term-ink:#E6E1FF;--term-dim:#8D86B5;--term-key:#22D3EE;--term-val:#FFFFFF;
-  --sans:"Sora",system-ui,sans-serif;--monof:"JetBrains Mono",ui-monospace,monospace;
-}
-[data-skin="neon"] body{background:#07060F}
-[data-skin="neon"] body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
-  background:radial-gradient(35% 30% at 20% 20%,rgba(167,139,250,.28),transparent 70%),radial-gradient(30% 30% at 80% 30%,rgba(34,211,238,.20),transparent 70%),radial-gradient(35% 35% at 50% 85%,rgba(236,72,153,.16),transparent 70%);
-  animation:aurora 22s ease-in-out infinite alternate}
-@keyframes aurora{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(-4%,3%) rotate(8deg)}100%{transform:translate(3%,-3%) rotate(-6deg)}}
-[data-skin="neon"] header{background:rgba(7,6,15,.6)}
-[data-skin="neon"] .band{background:transparent}
-[data-skin="neon"] .band::before{opacity:.25}
-[data-skin="neon"] .herobg .o1{background:#A78BFA;opacity:.35}
-[data-skin="neon"] .herobg .o2{background:#22D3EE;opacity:.25}
-[data-skin="neon"] h1,[data-skin="neon"] .head h2,[data-skin="neon"] .contact h2,[data-skin="neon"] .zhead h3,[data-skin="neon"] .expect h3{
-  background:linear-gradient(90deg,#FFFFFF 0%,#C4B5FD 30%,#22D3EE 55%,#FFFFFF 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 9s linear infinite}
-[data-skin="neon"] .expect h3 span{color:transparent}
-@keyframes gshift{to{background-position:-250% 0}}
-[data-skin="neon"] .dep,[data-skin="neon"] .adv li,[data-skin="neon"] .sx,[data-skin="neon"] .talk,[data-skin="neon"] .card,[data-skin="neon"] .archcard,[data-skin="neon"] .zero,[data-skin="neon"] .hist,[data-skin="neon"] .cform,[data-skin="neon"] .sx-tiles li,[data-skin="neon"] .term,[data-skin="neon"] .expect{
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.10)}
-[data-skin="neon"] .dep:hover,[data-skin="neon"] .adv li:hover,[data-skin="neon"] .sx-tiles li:hover,[data-skin="neon"] .talk:hover{border-color:#A78BFA;box-shadow:0 0 0 1px rgba(167,139,250,.5),0 0 40px -6px rgba(167,139,250,.55)}
-[data-skin="neon"] .btn.primary,[data-skin="neon"] .band .btn.primary,[data-skin="neon"] .expect .btn{border:0;color:#0A0814;background:linear-gradient(110deg,#A78BFA,#22D3EE,#A78BFA);background-size:200% 100%;animation:shine 4s linear infinite;box-shadow:0 10px 30px -10px rgba(167,139,250,.7)}
-@keyframes shine{to{background-position:-200% 0}}
-[data-skin="neon"] .btn.ghost{border-color:rgba(255,255,255,.25)}
-[data-skin="neon"] .cform input,[data-skin="neon"] .cform select,[data-skin="neon"] .cform textarea{background:rgba(0,0,0,.35)}
-[data-skin="neon"] .sx-tabs{background:rgba(255,255,255,.03)}
-[data-skin="neon"] .sx-tabs button[aria-selected="true"]{background:rgba(167,139,250,.12)}
-[data-skin="neon"] .mg{box-shadow:0 0 18px -2px currentColor}
-[data-skin="neon"] .avail{box-shadow:0 0 24px -6px #A78BFA}
-[data-skin="neon"] #boot{background:#07060F}
-
 /* ================= BLUEPRINT ================= */
 :root[data-skin="blueprint"]{
   --bg:#0D3B85;--surface:rgba(255,255,255,.05);--ink:#F4F8FF;--muted:#B9CBEA;--line:rgba(255,255,255,.28);
@@ -765,6 +729,32 @@ main{overflow-x:clip}
 .bp-cross .bp-xy .ok{color:#7CF29A}
 .bp-cross .ret{position:absolute;left:var(--cx,0);top:var(--cy,0);width:26px;height:26px;margin:-13px 0 0 -13px;border:1.5px solid rgba(255,200,87,.85);border-radius:50%;box-shadow:0 0 0 4px rgba(255,200,87,.12);animation:retp 2s ease-in-out infinite}
 @keyframes retp{50%{transform:scale(1.25);box-shadow:0 0 0 8px rgba(255,200,87,.06)}}
+
+/* ===== Blueprint v3: schematic background with cursor reveal ===== */
+.bp-ruler-y,.bp-ruler-x,.bp-cross{display:none!important}
+.bp-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bp-bg>div{position:absolute;inset:-40px;background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22720%22 height=%22720%22 viewBox=%220 0 720 720%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%221.2%22 font-family=%22monospace%22 font-size=%2211%22%3E %3Cg%3E %3Crect x=%2240%22 y=%2240%22 width=%2290%22 height=%22150%22/%3E %3Cline x1=%2240%22 y1=%2270%22 x2=%22130%22 y2=%2270%22/%3E%3Cline x1=%2240%22 y1=%22100%22 x2=%22130%22 y2=%22100%22/%3E%3Cline x1=%2240%22 y1=%22130%22 x2=%22130%22 y2=%22130%22/%3E%3Cline x1=%2240%22 y1=%22160%22 x2=%22130%22 y2=%22160%22/%3E %3Ccircle cx=%2252%22 cy=%2255%22 r=%223%22/%3E%3Ccircle cx=%2252%22 cy=%2285%22 r=%223%22/%3E%3Ccircle cx=%2252%22 cy=%22115%22 r=%223%22/%3E%3Ccircle cx=%2252%22 cy=%22145%22 r=%223%22/%3E %3Cline x1=%2270%22 y1=%2255%22 x2=%22118%22 y2=%2255%22/%3E%3Cline x1=%2270%22 y1=%2285%22 x2=%22118%22 y2=%2285%22/%3E%3Cline x1=%2270%22 y1=%22115%22 x2=%22118%22 y2=%22115%22/%3E%3Cline x1=%2270%22 y1=%22145%22 x2=%22118%22 y2=%22145%22/%3E %3Ctext x=%2240%22 y=%22208%22 fill=%22%23fff%22 stroke=%22none%22%3ERACK-A1 %C2%B7 42U%3C/text%3E %3Cline x1=%2230%22 y1=%2240%22 x2=%2230%22 y2=%22190%22 stroke-dasharray=%223 3%22/%3E%3Cline x1=%2225%22 y1=%2240%22 x2=%2235%22 y2=%2240%22/%3E%3Cline x1=%2225%22 y1=%22190%22 x2=%2235%22 y2=%22190%22/%3E %3C/g%3E %3Cg%3E %3Cpath d=%22M230 110 a40 40 0 0 1 75 -20 a32 32 0 0 1 55 18 a30 30 0 0 1 -5 60 h-120 a30 30 0 0 1 -5 -58z%22/%3E %3Ctext x=%22250%22 y=%22150%22 fill=%22%23fff%22 stroke=%22none%22%3EVPC 10.0.0.0/16%3C/text%3E %3Crect x=%22215%22 y=%22200%22 width=%2270%22 height=%2240%22 stroke-dasharray=%225 4%22/%3E%3Ctext x=%22221%22 y=%22224%22 fill=%22%23fff%22 stroke=%22none%22%3ESUBNET-A%3C/text%3E %3Crect x=%22305%22 y=%22200%22 width=%2270%22 height=%2240%22 stroke-dasharray=%225 4%22/%3E%3Ctext x=%22311%22 y=%22224%22 fill=%22%23fff%22 stroke=%22none%22%3ESUBNET-B%3C/text%3E %3Cline x1=%22295%22 y1=%22168%22 x2=%22250%22 y2=%22200%22/%3E%3Cline x1=%22295%22 y1=%22168%22 x2=%22340%22 y2=%22200%22/%3E %3C/g%3E %3Cg%3E %3Cpolygon points=%22520,60 545,74 545,102 520,116 495,102 495,74%22/%3E %3Cpolygon points=%22570,88 595,102 595,130 570,144 545,130 545,102%22/%3E %3Cpolygon points=%22470,88 495,102 495,130 470,144 445,130 445,102%22/%3E %3Cpolygon points=%22520,116 545,130 545,158 520,172 495,158 495,130%22/%3E %3Cpolygon points=%22570,144 595,158 595,186 570,200 545,186 545,158%22/%3E %3Cpolygon points=%22470,144 495,158 495,186 470,200 445,186 445,158%22/%3E %3Ctext x=%22490%22 y=%2292%22 fill=%22%23fff%22 stroke=%22none%22%3Ectrl%3C/text%3E %3Ctext x=%22455%22 y=%22225%22 fill=%22%23fff%22 stroke=%22none%22%3ECLUSTER %C2%B7 6 NODES%3C/text%3E %3C/g%3E %3Cg%3E %3Ccircle cx=%22110%22 cy=%22330%22 r=%2216%22/%3E%3Ccircle cx=%22230%22 cy=%22300%22 r=%2216%22/%3E%3Ccircle cx=%22230%22 cy=%22380%22 r=%2216%22/%3E%3Ccircle cx=%22350%22 cy=%22340%22 r=%2216%22/%3E %3Cline x1=%22126%22 y1=%22326%22 x2=%22214%22 y2=%22304%22/%3E%3Cline x1=%22126%22 y1=%22336%22 x2=%22214%22 y2=%22376%22/%3E%3Cline x1=%22246%22 y1=%22304%22 x2=%22334%22 y2=%22336%22/%3E%3Cline x1=%22246%22 y1=%22376%22 x2=%22334%22 y2=%22344%22/%3E %3Ctext x=%2292%22 y=%22362%22 fill=%22%23fff%22 stroke=%22none%22%3ELB%3C/text%3E%3Ctext x=%22208%22 y=%22276%22 fill=%22%23fff%22 stroke=%22none%22%3Enode-01%3C/text%3E%3Ctext x=%22208%22 y=%22412%22 fill=%22%23fff%22 stroke=%22none%22%3Enode-02%3C/text%3E%3Ctext x=%22328%22 y=%22374%22 fill=%22%23fff%22 stroke=%22none%22%3Eapi%3C/text%3E %3C/g%3E %3Cg%3E %3Cellipse cx=%22560%22 cy=%22300%22 rx=%2244%22 ry=%2212%22/%3E%3Cpath d=%22M516 300 v70 a44 12 0 0 0 88 0 v-70%22/%3E%3Cellipse cx=%22560%22 cy=%22335%22 rx=%2244%22 ry=%2212%22 stroke-dasharray=%224 4%22/%3E %3Ctext x=%22522%22 y=%22400%22 fill=%22%23fff%22 stroke=%22none%22%3EDB PRIMARY%3C/text%3E %3Cellipse cx=%22660%22 cy=%22320%22 rx=%2230%22 ry=%229%22/%3E%3Cpath d=%22M630 320 v46 a30 9 0 0 0 60 0 v-46%22/%3E %3Ctext x=%22634%22 y=%22390%22 fill=%22%23fff%22 stroke=%22none%22%3EREPLICA%3C/text%3E %3Cline x1=%22604%22 y1=%22335%22 x2=%22630%22 y2=%22340%22 stroke-dasharray=%223 3%22/%3E %3C/g%3E %3Cg%3E %3Crect x=%2260%22 y=%22480%22 width=%22120%22 height=%2270%22/%3E%3Crect x=%2272%22 y=%22492%22 width=%2296%22 height=%2246%22 stroke-dasharray=%223 3%22/%3E %3Ctext x=%2280%22 y=%22520%22 fill=%22%23fff%22 stroke=%22none%22%3EINGRESS%3C/text%3E %3Cpath d=%22M180 515 h70%22/%3E%3Cpath d=%22M244 510 l8 5 l-8 5%22/%3E %3Crect x=%22255%22 y=%22485%22 width=%22140%22 height=%2260%22/%3E%3Ctext x=%22268%22 y=%22512%22 fill=%22%23fff%22 stroke=%22none%22%3ESVC: payments%3C/text%3E%3Ctext x=%22268%22 y=%22530%22 fill=%22%23fff%22 stroke=%22none%22%3Ereplicas: 3%3C/text%3E %3Cpath d=%22M395 515 h70%22/%3E%3Cpath d=%22M459 510 l8 5 l-8 5%22/%3E %3Crect x=%22470%22 y=%22485%22 width=%22110%22 height=%2260%22 rx=%228%22/%3E%3Ctext x=%22484%22 y=%22520%22 fill=%22%23fff%22 stroke=%22none%22%3EQUEUE %C2%B7 MQ%3C/text%3E %3C/g%3E %3Cg%3E %3Cline x1=%2260%22 y1=%22600%22 x2=%22580%22 y2=%22600%22/%3E%3Cline x1=%2260%22 y1=%22594%22 x2=%2260%22 y2=%22606%22/%3E%3Cline x1=%22580%22 y1=%22594%22 x2=%22580%22 y2=%22606%22/%3E %3Ctext x=%22275%22 y=%22594%22 fill=%22%23fff%22 stroke=%22none%22%3E5200 mm%3C/text%3E %3Ctext x=%2260%22 y=%22650%22 fill=%22%23fff%22 stroke=%22none%22%3ENOTE 1: ALL TRAFFIC VIA TLS 1.3%3C/text%3E %3Ctext x=%2260%22 y=%22668%22 fill=%22%23fff%22 stroke=%22none%22%3ENOTE 2: HPA min=3 max=12 %C2%B7 SLO 99.9%25%3C/text%3E %3Ccircle cx=%22640%22 cy=%22640%22 r=%2234%22/%3E%3Cline x1=%22606%22 y1=%22640%22 x2=%22674%22 y2=%22640%22/%3E%3Cline x1=%22640%22 y1=%22606%22 x2=%22640%22 y2=%22674%22/%3E%3Ctext x=%22616%22 y=%22700%22 fill=%22%23fff%22 stroke=%22none%22%3EDATUM A%3C/text%3E %3C/g%3E %3C/svg%3E");background-size:720px 720px;background-position:var(--px,0) var(--py,0)}
+.bp-bg .base{opacity:.22}
+.bp-bg .lit{opacity:1;-webkit-mask-image:radial-gradient(260px circle at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:radial-gradient(260px circle at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);transition:opacity .3s}
+.bp-bg .glow{background:radial-gradient(320px circle at var(--mx,-999px) var(--my,-999px),rgba(255,200,87,.16),transparent 70%)!important}
+.bp-bg .base{animation:bpbreathe 7s ease-in-out infinite}
+@keyframes bpbreathe{50%{opacity:.3}}
+@media (pointer:coarse){.bp-bg .lit{-webkit-mask-image:none;mask-image:none;opacity:.0}.bp-bg .glow{display:none}.bp-bg .base{opacity:.28;animation:none}}
+@media (prefers-reduced-motion:reduce){.bp-bg .base{animation:none}}
+
+:root[data-skin="blueprint"]{--surface:rgba(16,68,148,.94);--band-2:rgba(16,68,148,.94)}
+[data-skin="blueprint"] .band{background:rgba(7,36,84,.88)}
+[data-skin="blueprint"] .sx-tiles li,[data-skin="blueprint"] .chips li{background:#0E3D88}
+
+[data-skin="blueprint"] .bp-bg>div{background-size:640px 640px}
+[data-skin="blueprint"] .band{background:rgba(7,36,84,.55)}
+[data-skin="blueprint"] .bp-bg .lit{filter:drop-shadow(0 0 2px rgba(255,255,255,.6))}
+
+[data-skin="blueprint"] .bp-title{background:#0B3577}
+[data-skin="blueprint"] .lede,[data-skin="blueprint"] .where,[data-skin="blueprint"] .roles,[data-skin="blueprint"] .head p,[data-skin="blueprint"] .head .cmdline,[data-skin="blueprint"] .head::before,[data-skin="blueprint"] .kicker,[data-skin="blueprint"] .stats span,[data-skin="blueprint"] .pipe li,[data-skin="blueprint"] .invite,[data-skin="blueprint"] .contact p,[data-skin="blueprint"] .applyline,[data-skin="blueprint"] .resp,[data-skin="blueprint"] .zhead p{
+  text-shadow:0 0 4px #0D3B85,0 0 10px #0D3B85,0 0 18px #0D3B85}
+[data-skin="blueprint"] .btn.ghost{background:#0D3B85}
+[data-skin="blueprint"] .btn.ghost:hover{background:#174C9E}
 </style>
 <noscript><style>#boot{display:none}.reveal,.stagger>*,.hist .item,.msg{opacity:1;transform:none}#out{opacity:1}body.booting{overflow:auto}.hero h1,.hero .lede,.hero .actions,.hero .where{animation:none}</style></noscript>
 </head>
@@ -801,9 +791,8 @@ main{overflow-x:clip}
     </div>
   </div>
 </div>
-<div id="skinwipe" aria-hidden="true"></div>
-<div class="bp-ruler-y bp-only" aria-hidden="true"></div><div class="bp-ruler-x bp-only" aria-hidden="true"></div>
-<div class="bp-cross bp-only" aria-hidden="true"><i class="h"></i><i class="v"></i><b class="ret"></b><span class="bp-xy mono"></span></div>
+
+<div class="bp-bg bp-only" aria-hidden="true"><div class="base"></div><div class="lit"></div><div class="glow"></div></div>
 <header>
   <nav class="wrap nav" aria-label="Main">
     <a class="brand" href="#top"><span class="live" aria-hidden="true"></span><span class="bfull">Muhammad&nbsp;</span>Qasim Sultani</a>
@@ -815,11 +804,6 @@ main{overflow-x:clip}
       <li class="hide-sm hide-md"><a href="#speaking">Speaking</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="skins" role="group" aria-label="Choose a theme">
-      <button type="button" class="k-cluster" data-skin="cluster" aria-pressed="true" aria-label="Cluster theme"><span class="tip mono">Cluster</span></button>
-      <button type="button" class="k-neon" data-skin="neon" aria-pressed="false" aria-label="Neon theme"><span class="tip mono">Neon</span></button>
-      <button type="button" class="k-blueprint" data-skin="blueprint" aria-pressed="false" aria-label="Blueprint theme"><span class="tip mono">Blueprint</span></button>
-    </div>
   </nav>
 </header>
 
@@ -1597,31 +1581,7 @@ var FORM_ACTION = "https://formsubmit.co/qasimsultani11@gmail.com";
 })();
 </script>
 
-<script>
-(function(){
-  var SK={cluster:{bg:null,net:"45,212,191"},neon:{bg:"#07060F",net:"167,139,250"},blueprint:{bg:"#0D3B85",net:"255,200,87"}};
-  var root=document.documentElement, btns=[].slice.call(document.querySelectorAll(".skins button")), wipe=document.getElementById("skinwipe");
-  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function apply(k){
-    if(k==="cluster")root.removeAttribute("data-skin");else root.setAttribute("data-skin",k);
-    window.NETRGB=SK[k].net;
-    btns.forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.skin===k));});
-    try{localStorage.setItem("skin",k);}catch(e){}
-    var mc=document.querySelector('meta[name="theme-color"]'); if(mc)mc.content=SK[k].bg||"#0B1220";
-  }
-  var cur=(root.getAttribute("data-skin")||"cluster"); apply(SK[cur]?cur:"cluster");
-  btns.forEach(function(b){b.addEventListener("click",function(e){
-    var k=b.dataset.skin; if((root.getAttribute("data-skin")||"cluster")===k)return;
-    if(reduce){apply(k);return;}
-    var r=b.getBoundingClientRect();
-    wipe.style.setProperty("--wx",(r.left+r.width/2)+"px"); wipe.style.setProperty("--wy",(r.top+r.height/2)+"px");
-    var probe=getComputedStyle(root).getPropertyValue("--bg");
-    wipe.style.background=SK[k].bg||(window.matchMedia("(prefers-color-scheme: dark)").matches?"#0B1220":"#F3F6F9");
-    wipe.className=""; void wipe.offsetWidth; wipe.className="go";
-    setTimeout(function(){apply(k); wipe.className="go out"; setTimeout(function(){wipe.style.transition="none";wipe.className="";void wipe.offsetWidth;wipe.style.transition="";},480);},560);
-  });});
-})();
-</script>
+<script>window.NETRGB="255,200,87";</script>
 
 <script>
 (function(){
@@ -1653,6 +1613,20 @@ var FORM_ACTION = "https://formsubmit.co/qasimsultani11@gmail.com";
   try{history.replaceState(null,"",location.pathname+"#contact");}catch(e){}
   document.getElementById("thx-back").addEventListener("click",function(e){e.preventDefault();t.hidden=true;document.body.style.overflow="";});
   setTimeout(function(){document.getElementById("thx-back").focus();},50);
+})();
+</script>
+<script>
+(function(){
+  var bg=document.querySelector(".bp-bg"); if(!bg)return;
+  var root=document.documentElement, mx=-999,my=-999,raf=null;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function paint(){raf=null;
+    bg.style.setProperty("--mx",mx+40+"px");bg.style.setProperty("--my",my+40+"px");
+    var y=window.scrollY||0; bg.style.setProperty("--py",(reduce?0:-y*0.25)+"px");}
+  function q(){if(!raf)raf=requestAnimationFrame(paint);}
+  document.addEventListener("mousemove",function(e){if(root.getAttribute("data-skin")!=="blueprint")return;mx=e.clientX;my=e.clientY;q();},{passive:true});
+  document.addEventListener("mouseleave",function(){mx=-999;my=-999;q();});
+  window.addEventListener("scroll",function(){if(root.getAttribute("data-skin")==="blueprint")q();},{passive:true});
 })();
 </script>
 </body>
