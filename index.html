@@ -654,6 +654,117 @@ body.ready .avail{animation-play-state:running}
   [data-skin] body,[data-skin] body::before,[data-skin] body::after{animation:none!important}
 }
 
+/* ===== BLUEPRINT v2 enhancements ===== */
+.bp-only{display:none}
+[data-skin="blueprint"] .bp-only{display:block}
+[data-skin="blueprint"] body{counter-reset:sheet}
+/* rulers */
+.bp-ruler-y,.bp-ruler-x{position:fixed;z-index:25;pointer-events:none;background-color:rgba(8,38,90,.85)}
+.bp-ruler-y{left:0;top:60px;bottom:0;width:18px;border-right:1px solid rgba(255,255,255,.35);
+  background-image:repeating-linear-gradient(to bottom,rgba(255,255,255,.55) 0 1px,transparent 1px 10px),repeating-linear-gradient(to bottom,rgba(255,200,87,.9) 0 1px,transparent 1px 100px);
+  background-size:6px 100%,12px 100%;background-repeat:no-repeat;background-position:right top,right top}
+.bp-ruler-x{left:18px;right:0;bottom:0;height:18px;border-top:1px solid rgba(255,255,255,.35);
+  background-image:repeating-linear-gradient(to right,rgba(255,255,255,.55) 0 1px,transparent 1px 10px),repeating-linear-gradient(to right,rgba(255,200,87,.9) 0 1px,transparent 1px 100px);
+  background-size:100% 6px,100% 12px;background-repeat:no-repeat;background-position:left top,left top}
+@media (max-width:760px){.bp-ruler-y,.bp-ruler-x{display:none!important}}
+/* crosshair */
+.bp-cross{position:fixed;inset:0;z-index:24;pointer-events:none;opacity:0;transition:opacity .25s}
+.bp-cross.on{opacity:1}
+.bp-cross i{position:absolute;background:rgba(255,200,87,.35)}
+.bp-cross .h{left:0;right:0;height:1px;top:var(--cy,0)}
+.bp-cross .v{top:0;bottom:0;width:1px;left:var(--cx,0)}
+.bp-cross .bp-xy{position:absolute;left:calc(var(--cx,0) + 12px);top:calc(var(--cy,0) + 12px);font-size:11px;padding:3px 7px;background:rgba(8,38,90,.9);border:1px solid rgba(255,200,87,.6);color:#FFC857;border-radius:2px;white-space:nowrap}
+@media (pointer:coarse){.bp-cross{display:none!important}}
+/* construction geometry in hero */
+.bp-geo{position:absolute;right:-60px;top:20px;width:620px;height:620px;pointer-events:none;z-index:0;opacity:.55}
+.bp-geo *{fill:none;stroke:#fff;stroke-width:1}
+.bp-geo .am{stroke:#FFC857}
+.bp-geo .dsh{stroke-dasharray:6 6}
+.bp-geo .draw{stroke-dasharray:2000;stroke-dashoffset:2000;animation:bpdraw 3.5s cubic-bezier(.6,0,.2,1) .4s forwards}
+.bp-geo .spin{transform-origin:310px 310px;animation:bpspin 60s linear infinite}
+.bp-geo .spinr{transform-origin:310px 310px;animation:bpspin 90s linear infinite reverse}
+.bp-geo text{fill:#FFC857;stroke:none;font-family:var(--monof),monospace;font-size:11px;letter-spacing:.08em}
+@keyframes bpdraw{to{stroke-dashoffset:0}}
+@keyframes bpspin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.bp-geo{width:420px;height:420px;right:-140px;top:120px;opacity:.35}}
+.hright{position:relative;z-index:1;min-width:0}
+/* title block */
+.bp-title{margin-top:14px;border:1.5px solid rgba(255,255,255,.6);font-size:11.5px;color:#DCE7FA}
+.bp-title .r{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid rgba(255,255,255,.35)}
+.bp-title .r:first-child{border-top:0}
+.bp-title .c{padding:7px 10px;border-left:1px solid rgba(255,255,255,.35)}
+.bp-title .c:first-child{border-left:0}
+.bp-title .c b{display:block;font-size:9.5px;letter-spacing:.14em;color:#FFC857;font-weight:600;margin-bottom:2px}
+.bp-title .wide{grid-column:span 2}
+/* hero outline -> fill */
+[data-skin="blueprint"] .hero h1{color:transparent;-webkit-text-stroke:1.4px #F4F8FF;background:linear-gradient(#F4F8FF,#F4F8FF) no-repeat 0 0/0% 100%;-webkit-background-clip:text;background-clip:text;animation:rise .8s ease both,bpfill 2.4s cubic-bezier(.6,0,.2,1) 1.4s forwards}
+@keyframes bpfill{to{background-size:100% 100%}}
+/* sheet labels + dimension lines */
+[data-skin="blueprint"] .head{counter-increment:sheet;position:relative}
+[data-skin="blueprint"] .head::before{content:"SHEET " counter(sheet,decimal-leading-zero) "  ·  REV 04  ·  SCALE 1:1";display:block;font-family:var(--monof),monospace;font-size:11px;letter-spacing:.16em;color:rgba(244,248,255,.6);margin-bottom:10px}
+[data-skin="blueprint"] .head h2{display:inline-block;position:relative;padding-bottom:18px}
+[data-skin="blueprint"] .head h2::after{height:12px;bottom:0;background:linear-gradient(var(--accent),var(--accent)) left center/2px 12px no-repeat,linear-gradient(var(--accent),var(--accent)) right center/2px 12px no-repeat,linear-gradient(var(--accent),var(--accent)) center/100% 1.5px no-repeat}
+/* four corner registration marks on major cards */
+[data-skin="blueprint"] .dep,[data-skin="blueprint"] .sx,[data-skin="blueprint"] .archcard,[data-skin="blueprint"] .zero,[data-skin="blueprint"] .cform,[data-skin="blueprint"] .hist,[data-skin="blueprint"] .talk,[data-skin="blueprint"] .card,[data-skin="blueprint"] .adv li{
+  background-image:linear-gradient(var(--accent),var(--accent)),linear-gradient(var(--accent),var(--accent)),linear-gradient(var(--accent),var(--accent)),linear-gradient(var(--accent),var(--accent)),linear-gradient(var(--accent),var(--accent)),linear-gradient(var(--accent),var(--accent)),linear-gradient(var(--accent),var(--accent)),linear-gradient(var(--accent),var(--accent));
+  background-size:14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px;
+  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;background-repeat:no-repeat;transition:background-size .35s ease,border-color .25s}
+[data-skin="blueprint"] .dep:hover,[data-skin="blueprint"] .talk:hover,[data-skin="blueprint"] .adv li:hover,[data-skin="blueprint"] .card:hover{background-size:26px 2px,2px 26px,26px 2px,2px 26px,26px 2px,2px 26px,26px 2px,2px 26px}
+/* stats as dimensioned values */
+[data-skin="blueprint"] .stats>div{position:relative;padding-top:16px}
+[data-skin="blueprint"] .stats>div::before{content:"";position:absolute;left:0;top:0;width:100%;height:10px;background:linear-gradient(var(--accent),var(--accent)) left/1.5px 10px no-repeat,linear-gradient(var(--accent),var(--accent)) right/1.5px 10px no-repeat,linear-gradient(rgba(255,200,87,.6),rgba(255,200,87,.6)) center/100% 1px no-repeat}
+/* pipeline + architecture tweaks */
+[data-skin="blueprint"] .pipe li .dot{border-radius:3px;border-style:dashed}
+[data-skin="blueprint"] .arch .edges path{stroke:#fff;opacity:.75}
+[data-skin="blueprint"] .arch .ahead{fill:#fff}
+[data-skin="blueprint"] .arch .lanes rect{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.45)}
+[data-skin="blueprint"] .arch .packets circle{fill:#FFC857}
+[data-skin="blueprint"] .zdot{border-radius:3px}
+[data-skin="blueprint"] .sx-num{-webkit-text-stroke:1.5px var(--accent);color:transparent}
+[data-skin="blueprint"] .sx-panel.on .sx-num{animation:sxin .55s both,bpnum 1.2s .3s forwards}
+@keyframes bpnum{to{color:var(--accent)}}
+[data-skin="blueprint"] #totop{border-radius:4px;background:#0A3170;color:#FFC857;border:1.5px dashed rgba(255,255,255,.5)}
+[data-skin="blueprint"] .marquee{border-style:dashed;border-color:rgba(255,255,255,.4)}
+[data-skin="blueprint"] footer{border-top:1.5px dashed rgba(255,255,255,.4)}
+[data-skin="blueprint"] main{padding-left:6px}
+main{overflow-x:clip}
+@media (max-width:760px){[data-skin="blueprint"] main{padding-left:0}}
+.skins button:focus:not(:focus-visible) .tip{opacity:0}
+.skins button:last-child .tip{left:auto;right:0;transform:none}
+@media (max-width:760px){.skins .tip{display:none}}
+@media (prefers-reduced-motion:reduce){
+  [data-skin="blueprint"] .hero h1{animation:none;background-size:100% 100%}
+  .bp-geo .draw{animation:none;stroke-dashoffset:0}.bp-geo .spin,.bp-geo .spinr{animation:none}
+  .bp-cross{display:none!important}
+}
+
+
+/* thank-you page */
+#thanks{position:fixed;inset:0;z-index:150;display:grid;place-items:center;padding:24px;background:var(--bg);overflow:auto}
+#thanks[hidden]{display:none}
+[data-skin="blueprint"] #thanks{background-color:#0D3B85;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:40px 40px}
+#thanks::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--accent);filter:blur(120px);opacity:.18;animation:drift 10s ease-in-out infinite alternate}
+.thx-box{position:relative;max-width:560px;width:100%;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:40px 32px;box-shadow:0 40px 80px -40px rgba(0,0,0,.5);animation:popin .6s cubic-bezier(.2,.7,.2,1) both}
+[data-skin="blueprint"] .thx-box{border-radius:4px;border:1.5px dashed rgba(255,255,255,.5)}
+.thx-check{width:96px;height:96px;margin:0 auto 18px;display:block}
+.thx-check circle{fill:none;stroke:var(--accent);stroke-width:5;stroke-dasharray:330;stroke-dashoffset:330;animation:bpdraw .9s ease-out .2s forwards}
+.thx-check path{fill:none;stroke:var(--accent);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:80;stroke-dashoffset:80;animation:bpdraw .5s ease-out 1s forwards}
+.thx-cmd{font-size:13.5px;color:var(--accent);margin-bottom:10px}
+#thanks h2{font-size:clamp(32px,5vw,46px);margin:0 0 12px;letter-spacing:-0.02em;line-height:1.1}
+#thanks p{color:var(--muted);margin:0 auto 22px;max-width:30em}
+.thx-log{text-align:left;display:inline-grid;gap:6px;font-size:13.5px;margin:0 0 26px;padding:14px 18px;border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.thx-log div{opacity:0;animation:sxin .4s ease forwards}
+.thx-log div:nth-child(1){animation-delay:1.3s}.thx-log div:nth-child(2){animation-delay:1.6s}.thx-log div:nth-child(3){animation-delay:1.9s}
+.thx-log .ok{color:var(--accent);margin-right:6px}
+.thx-log b{color:var(--accent);font-weight:600}
+#thanks .actions{justify-content:center}
+@media (prefers-reduced-motion:reduce){.thx-check circle,.thx-check path{animation:none;stroke-dashoffset:0}.thx-log div{opacity:1;animation:none}}
+
+.bp-cross .bp-xy{display:grid;gap:2px;line-height:1.45;font-size:10.5px;color:#DCE7FA;padding:6px 9px}
+.bp-cross .bp-xy .l1{color:#FFC857;font-weight:600}
+.bp-cross .bp-xy .ok{color:#7CF29A}
+.bp-cross .ret{position:absolute;left:var(--cx,0);top:var(--cy,0);width:26px;height:26px;margin:-13px 0 0 -13px;border:1.5px solid rgba(255,200,87,.85);border-radius:50%;box-shadow:0 0 0 4px rgba(255,200,87,.12);animation:retp 2s ease-in-out infinite}
+@keyframes retp{50%{transform:scale(1.25);box-shadow:0 0 0 8px rgba(255,200,87,.06)}}
 </style>
 <noscript><style>#boot{display:none}.reveal,.stagger>*,.hist .item,.msg{opacity:1;transform:none}#out{opacity:1}body.booting{overflow:auto}.hero h1,.hero .lede,.hero .actions,.hero .where{animation:none}</style></noscript>
 </head>
@@ -673,7 +784,26 @@ body.ready .avail{animation-play-state:running}
 </div>
 <div id="prog" aria-hidden="true"></div>
 
+<div id="thanks" role="dialog" aria-modal="true" aria-labelledby="thx-h" hidden>
+  <div class="thx-box">
+    <svg class="thx-check" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><path d="M38 62 L54 78 L84 44"/></svg>
+    <div class="thx-cmd mono" aria-hidden="true">$ kubectl apply -f message.yaml</div>
+    <h2 id="thx-h">Message received.</h2>
+    <p>Thank you for reaching out. Your message is in my inbox, and I'll reply to your email soon. A confirmation has been sent to you as well.</p>
+    <div class="thx-log mono" aria-hidden="true">
+      <div><span class="ok">✓</span> message/your-request <b>created</b></div>
+      <div><span class="ok">✓</span> notification/qasim <b>delivered</b></div>
+      <div><span class="ok">✓</span> reply/eta <b>soon</b></div>
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="./" id="thx-back">Back to portfolio</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/muhammad-qasim-sultani/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+  </div>
+</div>
 <div id="skinwipe" aria-hidden="true"></div>
+<div class="bp-ruler-y bp-only" aria-hidden="true"></div><div class="bp-ruler-x bp-only" aria-hidden="true"></div>
+<div class="bp-cross bp-only" aria-hidden="true"><i class="h"></i><i class="v"></i><b class="ret"></b><span class="bp-xy mono"></span></div>
 <header>
   <nav class="wrap nav" aria-label="Main">
     <a class="brand" href="#top"><span class="live" aria-hidden="true"></span><span class="bfull">Muhammad&nbsp;</span>Qasim Sultani</a>
@@ -694,6 +824,19 @@ body.ready .avail{animation-play-state:running}
 </header>
 
 <main id="top">
+  <svg class="bp-geo bp-only" viewBox="0 0 620 620" aria-hidden="true">
+    <circle class="draw" cx="310" cy="310" r="280"/>
+    <circle class="draw dsh" cx="310" cy="310" r="220"/>
+    <g class="spin"><circle class="dsh am" cx="310" cy="310" r="250"/><line x1="310" y1="30" x2="310" y2="60" class="am"/><line x1="310" y1="560" x2="310" y2="590" class="am"/><line x1="30" y1="310" x2="60" y2="310" class="am"/><line x1="560" y1="310" x2="590" y2="310" class="am"/></g>
+    <g class="spinr"><circle class="dsh" cx="310" cy="310" r="160"/><circle cx="310" cy="150" r="6" class="am"/><circle cx="470" cy="310" r="4"/></g>
+    <line class="draw dsh" x1="0" y1="310" x2="620" y2="310"/>
+    <line class="draw dsh" x1="310" y1="0" x2="310" y2="620"/>
+    <line class="draw" x1="112" y1="112" x2="508" y2="508"/>
+    <path class="draw am" d="M390 310 A80 80 0 0 0 366.6 253.4"/>
+    <text x="400" y="290">45°</text>
+    <text x="326" y="44">R 280</text>
+    <text x="40" y="300">Ø 560</text>
+  </svg>
   <div class="herobg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span></div>
   <div class="wrap hero">
     <div>
@@ -709,7 +852,8 @@ body.ready .avail{animation-play-state:running}
       <p class="where">Based in Karachi, Pakistan. Open to full-time roles (remote, hybrid, or on-site) and consulting worldwide.</p>
     </div>
 
-    <div class="term mono" role="img" aria-label="Terminal showing a profile summary: DevOps and Kubernetes Engineer at Bank AL Habib, 4+ years, AWS, Azure and GCP, Kubernetes, Terraform, Argo CD and Helm, 70+ servers at 99.9% uptime, open to remote roles.">
+    <div class="hright">
+      <div class="term mono" role="img" aria-label="Terminal showing a profile summary: DevOps and Kubernetes Engineer at Bank AL Habib, 4+ years, AWS, Azure and GCP, Kubernetes, Terraform, Argo CD and Helm, 70+ servers at 99.9% uptime, open to work.">
       <div class="bar" aria-hidden="true"><span></span><span></span><span></span></div>
 <pre aria-hidden="true"><span class="p">$</span> <span id="cmd"></span><span class="cursor" id="cur"></span>
 <span id="out"><span class="k">kind:</span> <span class="v">Engineer</span>
@@ -728,6 +872,12 @@ body.ready .avail{animation-play-state:running}
   <span class="k">uptime:</span> <span class="ok">99.9%</span>
   <span class="k">availability:</span> <span class="ok">open-to-work</span>
   <span class="c"># full-time and consulting</span></span></pre>
+    </div>
+      <div class="bp-title bp-only mono" aria-hidden="true">
+        <div class="r"><div class="c wide"><b>PROJECT</b>Production platforms</div><div class="c"><b>SHEET</b>01 / 06</div></div>
+        <div class="r"><div class="c wide"><b>ENGINEER</b>M. Qasim Sultani</div><div class="c"><b>REV</b>04</div></div>
+        <div class="r"><div class="c"><b>SCALE</b>1:1</div><div class="c"><b>UPTIME</b>99.9%</div><div class="c"><b>STATUS</b>Open to work</div></div>
+      </div>
     </div>
   </div>
 
@@ -1122,7 +1272,7 @@ body.ready .avail{animation-play-state:running}
         </div>
         <div class="resp mono" id="resp"></div>
       </div>
-      <form class="cform reveal" id="cform" novalidate>
+      <form class="cform reveal" id="cform" method="POST" action="https://formsubmit.co/qasimsultani11@gmail.com" novalidate>
         <div class="fhead mono"><span>contact.yaml</span><span class="status"><i></i>online</span></div>
         <label>Your name<input name="name" autocomplete="name" required></label>
         <label>Your email<input name="email" type="email" autocomplete="email" required placeholder="you@company.com"></label>
@@ -1139,7 +1289,9 @@ body.ready .avail{animation-play-state:running}
         <label>Message<textarea name="message" rows="4" required placeholder="A few lines about the role or project"></textarea></label>
         <input type="hidden" name="_subject" value="New message from your portfolio website">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" id="fnext" value="">
+        <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I've received your message and will reply to this email soon. - Muhammad Qasim Sultani, DevOps & Kubernetes Engineer">
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
         <button class="btn primary" type="submit" id="fsend">Send message</button>
         <p class="fmsg mono" id="fmsg" role="status" aria-live="polite"></p>
@@ -1331,27 +1483,22 @@ body.ready .avail{animation-play-state:running}
 })();
 </script>
 <script>
-/* ===== Contact form (FormSubmit) =====
-   Paste your FormSubmit AJAX endpoint below. Use the random string
-   FormSubmit emails you after activation, not your email address:
-   var FORM_ENDPOINT = "https://formsubmit.co/ajax/a1b2c3d4e5f6...";  */
-var FORM_ENDPOINT = "https://formsubmit.co/ajax/qasimsultani11@gmail.com";
+/* ===== Contact form (FormSubmit, with Google reCAPTCHA) =====
+   After activation, replace your email in FORM_ACTION with the random
+   string FormSubmit emails you, e.g. "https://formsubmit.co/a1b2c3d4e5f6"  */
+var FORM_ACTION = "https://formsubmit.co/qasimsultani11@gmail.com";
 (function(){
   var f=document.getElementById("cform"), msg=document.getElementById("fmsg"), btn=document.getElementById("fsend");
+  f.action=FORM_ACTION;
+  document.getElementById("fnext").value=location.origin+location.pathname+"?sent=1";
   document.querySelectorAll("[data-topic]").forEach(function(a){a.addEventListener("click",function(){document.getElementById("topic").value=a.dataset.topic;});});
   function say(t,c){msg.textContent=t;msg.className="fmsg mono "+(c||"");}
   f.addEventListener("submit",function(e){
-    e.preventDefault();
     var d=new FormData(f);
-    if(d.get("_honey"))return;
+    if(d.get("_honey")){e.preventDefault();return;}
     var email=(d.get("email")||"").trim(), name=(d.get("name")||"").trim(), m=(d.get("message")||"").trim();
-    if(!name||!m||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say("Please add your name, a valid email, and a message.","err");return;}
-    if(FORM_ENDPOINT.indexOf("YOUR_FORM_ID")>-1){say("The form isn't connected yet. Please message me on LinkedIn for now.","err");return;}
-    btn.disabled=true; say("$ sending…");
-    fetch(FORM_ENDPOINT,{method:"POST",body:d,headers:{Accept:"application/json"}})
-      .then(function(r){ if(r.ok){f.reset();say("✓ Message delivered. I'll reply to your email soon.","ok");} else throw 0; })
-      .catch(function(){say("Couldn't send right now. Please message me on LinkedIn instead.","err");})
-      .then(function(){btn.disabled=false;});
+    if(!name||!m||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){e.preventDefault();say("Please add your name, a valid email, and a message.","err");return;}
+    btn.disabled=true; say("$ verifying you're human…");
   });
   if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("svg.arch").forEach(function(sv){try{sv.pauseAnimations();}catch(e){}});}
 })();
@@ -1476,5 +1623,37 @@ var FORM_ENDPOINT = "https://formsubmit.co/ajax/qasimsultani11@gmail.com";
 })();
 </script>
 
+<script>
+(function(){
+  var root=document.documentElement, cross=document.querySelector(".bp-cross"), xy=document.querySelector(".bp-xy");
+  if(!cross||!window.matchMedia("(pointer:fine)").matches)return;
+  var raf=null,ex=0,ey=0;
+  function pad(n){n=Math.max(0,Math.round(n));return ("0000"+n).slice(-4);}
+  document.addEventListener("mousemove",function(e){
+    if(root.getAttribute("data-skin")!=="blueprint"){cross.classList.remove("on");return;}
+    ex=e.clientX;ey=e.clientY;
+    if(!raf)raf=requestAnimationFrame(function(){raf=null;
+      cross.style.setProperty("--cx",ex+"px");cross.style.setProperty("--cy",ey+"px");
+      var el=document.elementFromPoint(ex,ey), sec=el&&el.closest("section[id]"), id=sec?sec.id:"hero";
+      var ns={hero:"default",live:"production",experience:"history",stack:"platform",consulting:"advisory",speaking:"talks",contact:"ingress"}[id]||id;
+      var pods={hero:"qasim-7f9c",live:"bank-al-habib-api",experience:"career-v4",stack:"rke2-worker-03",consulting:"argocd-server",speaking:"speaker-01",contact:"nginx-ingress"};
+      var cpu=12+Math.round(Math.abs(Math.sin(ex/180))*48), mem=38+Math.round(Math.abs(Math.cos(ey/220))*44), lat=6+Math.round(Math.abs(Math.sin((ex+ey)/260))*24);
+      xy.innerHTML='<span class="l1">X '+pad(ex+window.scrollX)+' · Y '+pad(ey+window.scrollY)+'</span><span>ns/'+ns+' · pod/'+(pods[id]||id)+'</span><span>cpu '+cpu+'% · mem '+mem+'% · p99 '+lat+'ms</span><span class="ok">● Running · 99.9% uptime</span>';
+      cross.classList.add("on");});
+  },{passive:true});
+  document.addEventListener("mouseleave",function(){cross.classList.remove("on");});
+})();
+</script>
+
+<script>
+(function(){
+  var q=new URLSearchParams(location.search); if(q.get("sent")!=="1")return;
+  var t=document.getElementById("thanks"); t.hidden=false; document.body.style.overflow="hidden";
+  var boot=document.getElementById("boot"); if(boot)boot.style.display="none";
+  try{history.replaceState(null,"",location.pathname+"#contact");}catch(e){}
+  document.getElementById("thx-back").addEventListener("click",function(e){e.preventDefault();t.hidden=true;document.body.style.overflow="";});
+  setTimeout(function(){document.getElementById("thx-back").focus();},50);
+})();
+</script>
 </body>
 </html>
