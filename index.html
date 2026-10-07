@@ -826,6 +826,23 @@ header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
 .hv.ok input[type=range]::-webkit-slider-thumb{background-color:#7CF29A}
 .hv input[type=range]:focus-visible{outline:3px solid #FFC857;outline-offset:2px}
 .cform button[disabled]{opacity:.55;cursor:not-allowed}
+
+/* ===== v18: stronger, clearer content ===== */
+:root[data-skin="blueprint"]{--ink:#FFFFFF;--muted:#DCE7FA;--band-muted:#DCE7FA;--term-dim:#B5C9EC}
+[data-skin="blueprint"] body{font-weight:450}
+[data-skin="blueprint"] .lede,[data-skin="blueprint"] .head p,[data-skin="blueprint"] .contact p{color:#EAF1FF;font-weight:500}
+[data-skin="blueprint"] .dep p,[data-skin="blueprint"] .adv p,[data-skin="blueprint"] .svc p,[data-skin="blueprint"] .talk p,[data-skin="blueprint"] .zsteps p,[data-skin="blueprint"] .sx-tiles small,[data-skin="blueprint"] .hist ul,[data-skin="blueprint"] .how span,[data-skin="blueprint"] .engage p,[data-skin="blueprint"] .archinfo{color:#E3ECFF}
+[data-skin="blueprint"] .hist .role span,[data-skin="blueprint"] .hist .rev,[data-skin="blueprint"] .hist .date,[data-skin="blueprint"] .dep .ns,[data-skin="blueprint"] .cform label{color:#D3E0F7}
+[data-skin="blueprint"] h3,[data-skin="blueprint"] h4,[data-skin="blueprint"] .head h2,[data-skin="blueprint"] .hist .role b{color:#fff}
+[data-skin="blueprint"] .cform input::placeholder,[data-skin="blueprint"] .cform textarea::placeholder{color:#8FA9D6}
+/* calmer background behind content so text stands out */
+.bp-bg .base{opacity:.09!important}
+@keyframes bpbreathe{50%{opacity:.12}}
+[data-skin="blueprint"] .head,[data-skin="blueprint"] .hero>div:first-child{position:relative}
+[data-skin="blueprint"] .head::after{content:"";position:absolute;inset:-30px -40px;z-index:-1;background:radial-gradient(closest-side,rgba(10,45,105,.85),transparent);pointer-events:none}
+[data-skin="blueprint"] .hero>div:first-child::before{content:"";position:absolute;inset:-40px -60px;z-index:-1;background:radial-gradient(closest-side,rgba(10,45,105,.8),transparent);pointer-events:none}
+[data-skin="blueprint"] .expect h3 span{color:#C8D9F7}
+[data-skin="blueprint"] .checks li,[data-skin="blueprint"] .xnote{color:#EAF1FF}
 </style>
 <noscript><style>#boot{display:none}.reveal,.stagger>*,.hist .item,.msg{opacity:1;transform:none}#out{opacity:1}body.booting{overflow:auto}.hero h1,.hero .lede,.hero .actions,.hero .where{animation:none}</style></noscript>
 </head>
@@ -931,11 +948,6 @@ header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
   <span class="k">availability:</span> <span class="ok">open-to-work</span>
   <span class="c"># full-time and consulting</span></span></pre>
     </div>
-      <div class="bp-title bp-only mono" aria-hidden="true">
-        <div class="r"><div class="c wide"><b>PROJECT</b>Production platforms</div><div class="c"><b>SHEET</b>01 / 06</div></div>
-        <div class="r"><div class="c wide"><b>ENGINEER</b>M. Qasim Sultani</div><div class="c"><b>REV</b>04</div></div>
-        <div class="r"><div class="c"><b>SCALE</b>1:1</div><div class="c"><b>UPTIME</b>99.9%</div><div class="c"><b>STATUS</b>Open to work</div></div>
-      </div>
     </div>
   </div>
 
@@ -1550,7 +1562,7 @@ header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
 /* ===== Contact form (FormSubmit AJAX: no redirect, email never in the address bar) =====
    Replace YOUR_RANDOM_STRING with the random string from FormSubmit's email,
    e.g. "https://formsubmit.co/ajax/a1b2c3d4e5f6..."                      */
-var FORM_ENDPOINT = "https://formsubmit.co/ajax/YOUR_RANDOM_STRING";
+var FORM_ENDPOINT = "https://formsubmit.co/ajax/qasimsultani11@gmail.com";
 (function(){
   var f=document.getElementById("cform"), msg=document.getElementById("fmsg"), btn=document.getElementById("fsend");
   var r=document.getElementById("hvrange"), fill=document.getElementById("hvfill"), txt=document.getElementById("hvtext"), st=document.getElementById("hvstate"), hv=document.getElementById("hv");
