@@ -843,6 +843,11 @@ header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
 [data-skin="blueprint"] .hero>div:first-child::before{content:"";position:absolute;inset:-40px -60px;z-index:-1;background:radial-gradient(closest-side,rgba(10,45,105,.8),transparent);pointer-events:none}
 [data-skin="blueprint"] .expect h3 span{color:#C8D9F7}
 [data-skin="blueprint"] .checks li,[data-skin="blueprint"] .xnote{color:#EAF1FF}
+
+/* ===== v19: calmer ===== */
+#boot{display:none!important}
+[data-skin="blueprint"] body::after{display:none!important}
+.bp-geo{display:none!important}
 </style>
 <noscript><style>#boot{display:none}.reveal,.stagger>*,.hist .item,.msg{opacity:1;transform:none}#out{opacity:1}body.booting{overflow:auto}.hero h1,.hero .lede,.hero .actions,.hero .where{animation:none}</style></noscript>
 </head>
@@ -920,9 +925,9 @@ header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
       <p class="roles mono" aria-label="Open to DevOps Engineer, Site Reliability Engineer, Platform Engineer, Cloud Engineer roles, and DevOps consulting"><span aria-hidden="true">&gt; open to: <span id="role" class="rolew"></span><span class="cursor"></span></span></p>
       <p class="lede">I'm Qasim, a DevOps and Kubernetes Engineer at Bank AL Habib. For 4+ years I've run production platforms across AWS, Azure, and GCP, in banking and high-volume messaging, keeping 70+ production servers at 99.9% uptime.</p>
       <div class="actions">
-        <a class="btn primary" href="https://www.linkedin.com/in/muhammad-qasim-sultani/" target="_blank" rel="noopener">Message me on LinkedIn</a>
-        <a class="btn ghost" href="https://github.com/QasimSultani" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn ghost" href="https://medium.com/@qasimsultani11" target="_blank" rel="noopener">Medium</a>
+        <a class="btn primary" href="#contact" data-topic="Free 30-minute consultation">Book a free call</a>
+        <a class="btn ghost" href="resume.pdf" download="Muhammad-Qasim-Sultani-DevOps-CV.pdf">Download CV ↓</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/muhammad-qasim-sultani/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
       <p class="where">Based in Karachi, Pakistan. Open to full-time roles (remote, hybrid, or on-site) and consulting worldwide.</p>
     </div>
@@ -1408,7 +1413,7 @@ header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
     setTimeout(function(){boot.style.display="none";},750);
     setTimeout(heroType,350);
   }
-  if(reduce){boot.style.display="none";start();}
+  if(true){boot.style.display="none";start();}
   else{
     var lines=boot.querySelectorAll(".ln"), bar=document.getElementById("barf"), pct=document.getElementById("pct"), n=0;
     document.getElementById("skip").addEventListener("click",start);
@@ -1511,7 +1516,7 @@ header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
   });
   /* heading scramble */
   var chars="!<>-_\\/[]{}=+*^?#01";
-  function scramble(el){
+  function scramble(el){return;
     if(el.dataset.sc)return;el.dataset.sc=1;
     var final=el.textContent,frame=0,len=final.length;
     (function tick(){
