@@ -755,6 +755,77 @@ main{overflow-x:clip}
   text-shadow:0 0 4px #0D3B85,0 0 10px #0D3B85,0 0 18px #0D3B85}
 [data-skin="blueprint"] .btn.ghost{background:#0D3B85}
 [data-skin="blueprint"] .btn.ghost:hover{background:#174C9E}
+/* ===== v17: header ===== */
+header.bph{background:rgba(9,42,98,.92);border-bottom:0;box-shadow:0 1px 0 rgba(255,200,87,.55),0 8px 24px -12px rgba(0,0,0,.5)}
+header.bph::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:6px;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(255,200,87,.7) 0 1px,transparent 1px 12px),repeating-linear-gradient(90deg,rgba(255,200,87,.9) 0 1px,transparent 1px 120px);
+  background-size:100% 3px,100% 6px;background-repeat:no-repeat;background-position:0 0,0 0;opacity:.8}
+header.bph .nav{height:68px;gap:22px}
+header.bph .brand{gap:12px}
+header.bph .live{display:none}
+.mark{position:relative;width:40px;height:40px;display:grid;place-items:center;font-size:14px;font-weight:600;color:#FFC857;border:1.5px solid rgba(255,200,87,.9);border-radius:3px;background:rgba(255,200,87,.08)}
+.mark::before,.mark::after{content:"";position:absolute;width:8px;height:8px;border:2px solid #FFC857}
+.mark::before{left:-5px;top:-5px;border-right:0;border-bottom:0}
+.mark::after{right:-5px;bottom:-5px;border-left:0;border-top:0}
+.brand:hover .mark{background:#FFC857;color:#0B2F6B}
+.bt{display:grid;line-height:1.15}
+.bt b{font-size:17px;font-weight:700}
+.bt small{font-size:11px;letter-spacing:.08em;color:#FFC857;opacity:.85;margin-top:3px}
+header.bph ul{counter-reset:nv;gap:4px;margin-left:auto}
+header.bph ul li{counter-increment:nv}
+header.bph ul a{position:relative;display:block;padding:8px 12px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#C9D8F2;border-radius:3px;transition:color .2s,background-color .2s}
+header.bph ul a::before{content:counter(nv,decimal-leading-zero) " ";color:#FFC857;opacity:.75;font-size:10.5px}
+header.bph ul a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:1.5px;background:#FFC857;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+header.bph ul a:hover,header.bph ul a.cur{color:#fff;background:rgba(255,255,255,.06)}
+header.bph ul a:hover::after,header.bph ul a.cur::after{transform:scaleX(1)}
+.hcta{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:3px;background:#FFC857;color:#0B2F6B;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap;box-shadow:0 0 0 1px #FFC857,0 0 0 4px rgba(255,200,87,.18);transition:transform .2s,box-shadow .2s}
+.hcta:hover{transform:translateY(-1px);box-shadow:0 0 0 1px #FFC857,0 0 0 6px rgba(255,200,87,.25)}
+.hcta i{width:8px;height:8px;border-radius:50%;background:#0B7A3B;box-shadow:0 0 0 0 rgba(11,122,59,.6);animation:ping 1.8s ease-out infinite}
+@media (max-width:1100px){header.bph ul li.hide-md{display:none}}
+@media (max-width:860px){header.bph ul{display:none}header.bph .nav{justify-content:space-between}}
+@media (max-width:440px){.bt small{display:none}.mark{width:34px;height:34px;font-size:12.5px}.hcta{padding:9px 12px}}
+
+/* ===== v17: background ===== */
+[data-skin="blueprint"] body{animation:none;background-attachment:fixed;
+  background-image:radial-gradient(ellipse at 50% 0%,rgba(40,110,210,.55),transparent 60%),radial-gradient(ellipse at 100% 100%,rgba(5,25,70,.7),transparent 55%),linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:100% 100%,100% 100%,120px 120px,120px 120px,24px 24px,24px 24px}
+.bp-bg .base{opacity:.13!important}
+@keyframes bpbreathe{50%{opacity:.18}}
+.bp-bg>div{background-size:900px 900px!important}
+#bpnet{position:absolute;inset:0;width:100%;height:100%}
+[data-skin="blueprint"] body::after{opacity:.6}
+
+/* ===== v17: architecture diagram glow ===== */
+[data-skin="blueprint"] .archcard{background-color:#0B3577}
+[data-skin="blueprint"] .arch .nodes rect{fill:#0A3170;stroke:rgba(255,255,255,.75);stroke-width:1.6}
+[data-skin="blueprint"] .arch .nodes rect.cluster{fill:rgba(255,200,87,.06);stroke:#FFC857;stroke-width:2}
+[data-skin="blueprint"] .arch .nodes rect.pod{stroke:#FFC857}
+[data-skin="blueprint"] .arch .nodes rect.ops{stroke:#8FD0FF}
+[data-skin="blueprint"] .arch .nodes rect.obs{stroke:#7CF29A}
+[data-skin="blueprint"] .arch .edges path{stroke:#FFC857;stroke-width:2;stroke-dasharray:8 6;animation:dash 1.2s linear infinite;opacity:.9}
+[data-skin="blueprint"] .arch .ahead{fill:#FFC857}
+[data-skin="blueprint"] .arch .packets circle{fill:#fff;filter:drop-shadow(0 0 4px #FFC857) drop-shadow(0 0 8px #FFC857)}
+[data-skin="blueprint"] .arch .n:hover>rect,[data-skin="blueprint"] .arch .n.on>rect{stroke:#fff;filter:drop-shadow(0 0 8px rgba(255,200,87,.9))}
+[data-skin="blueprint"] .arch text{fill:#F4F8FF}
+[data-skin="blueprint"] .arch text.ct{fill:#FFC857}
+
+/* ===== v17: human check ===== */
+.hv{border:1.5px dashed rgba(255,255,255,.4);border-radius:4px;padding:10px 12px;background:rgba(4,24,60,.4)}
+.hv-head{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B9CBEA;margin-bottom:8px}
+.hv-head #hvstate{color:#FFC857}
+.hv.ok .hv-head #hvstate{color:#7CF29A}
+.hv-track{position:relative;display:block;height:44px;border-radius:3px;background:#082A60;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
+.hv-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,rgba(255,200,87,.25),rgba(255,200,87,.55))}
+.hv.ok .hv-fill{background:linear-gradient(90deg,rgba(124,242,154,.25),rgba(124,242,154,.5))}
+.hv-text{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;color:#E3ECFF;pointer-events:none}
+.hv input[type=range]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:1;background:transparent;-webkit-appearance:none;appearance:none;cursor:grab}
+.hv input[type=range]::-webkit-slider-runnable-track{height:44px;background:transparent}
+.hv input[type=range]::-moz-range-track{height:44px;background:transparent}
+.hv input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:52px;height:44px;border-radius:3px;background:#FFC857 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B2F6B' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/20px no-repeat;border:0}
+.hv input[type=range]::-moz-range-thumb{width:52px;height:44px;border-radius:3px;background:#FFC857;border:0}
+.hv.ok input[type=range]::-webkit-slider-thumb{background-color:#7CF29A}
+.hv input[type=range]:focus-visible{outline:3px solid #FFC857;outline-offset:2px}
+.cform button[disabled]{opacity:.55;cursor:not-allowed}
 </style>
 <noscript><style>#boot{display:none}.reveal,.stagger>*,.hist .item,.msg{opacity:1;transform:none}#out{opacity:1}body.booting{overflow:auto}.hero h1,.hero .lede,.hero .actions,.hero .where{animation:none}</style></noscript>
 </head>
@@ -779,7 +850,7 @@ main{overflow-x:clip}
     <svg class="thx-check" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><path d="M38 62 L54 78 L84 44"/></svg>
     <div class="thx-cmd mono" aria-hidden="true">$ kubectl apply -f message.yaml</div>
     <h2 id="thx-h">Message received.</h2>
-    <p>Thank you for reaching out. Your message is in my inbox, and I'll reply to your email soon. A confirmation has been sent to you as well.</p>
+    <p>Thank you for reaching out. Your message is in my inbox, and I'll reply to your email soon. Thanks for your patience.</p>
     <div class="thx-log mono" aria-hidden="true">
       <div><span class="ok">✓</span> message/your-request <b>created</b></div>
       <div><span class="ok">✓</span> notification/qasim <b>delivered</b></div>
@@ -792,18 +863,21 @@ main{overflow-x:clip}
   </div>
 </div>
 
-<div class="bp-bg bp-only" aria-hidden="true"><div class="base"></div><div class="lit"></div><div class="glow"></div></div>
-<header>
+<div class="bp-bg bp-only" aria-hidden="true"><div class="base"></div><div class="lit"></div><div class="glow"></div><canvas id="bpnet"></canvas></div>
+<header class="bph">
   <nav class="wrap nav" aria-label="Main">
-    <a class="brand" href="#top"><span class="live" aria-hidden="true"></span><span class="bfull">Muhammad&nbsp;</span>Qasim Sultani</a>
-    <ul>
-      <li class="hide-xs"><a href="#live">Live work</a></li>
-      <li class="hide-sm"><a href="#experience">Experience</a></li>
-      <li class="hide-sm hide-md"><a href="#stack">Stack</a></li>
-      <li class="hide-sm"><a href="#consulting">Consulting</a></li>
-      <li class="hide-sm hide-md"><a href="#speaking">Speaking</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <a class="brand" href="#top">
+      <span class="mark mono" aria-hidden="true">QS</span>
+      <span class="bt"><b><span class="bfull">Muhammad&nbsp;</span>Qasim Sultani</b><small class="mono">DevOps · Kubernetes · Cloud</small></span>
+    </a>
+    <ul class="mono">
+      <li><a href="#live">Live work</a></li>
+      <li><a href="#experience">Career</a></li>
+      <li class="hide-md"><a href="#stack">Stack</a></li>
+      <li><a href="#consulting">Consulting</a></li>
+      <li class="hide-md"><a href="#speaking">Speaking</a></li>
     </ul>
+    <a class="hcta mono" href="#contact"><i aria-hidden="true"></i>Hire me</a>
   </nav>
 </header>
 
@@ -821,7 +895,7 @@ main{overflow-x:clip}
     <text x="326" y="44">R 280</text>
     <text x="40" y="300">Ø 560</text>
   </svg>
-  <div class="herobg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span></div>
+  
   <div class="wrap hero">
     <div>
       <div class="avail mono"><i aria-hidden="true"></i>Open to new roles and consulting</div>
@@ -1256,7 +1330,7 @@ main{overflow-x:clip}
         </div>
         <div class="resp mono" id="resp"></div>
       </div>
-      <form class="cform reveal" id="cform" method="POST" action="https://formsubmit.co/qasimsultani11@gmail.com" novalidate>
+      <form class="cform reveal" id="cform" novalidate>
         <div class="fhead mono"><span>contact.yaml</span><span class="status"><i></i>online</span></div>
         <label>Your name<input name="name" autocomplete="name" required></label>
         <label>Your email<input name="email" type="email" autocomplete="email" required placeholder="you@company.com"></label>
@@ -1273,11 +1347,17 @@ main{overflow-x:clip}
         <label>Message<textarea name="message" rows="4" required placeholder="A few lines about the role or project"></textarea></label>
         <input type="hidden" name="_subject" value="New message from your portfolio website">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" id="fnext" value="">
-        <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I've received your message and will reply to this email soon. - Muhammad Qasim Sultani, DevOps & Kubernetes Engineer">
+        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-        <button class="btn primary" type="submit" id="fsend">Send message</button>
+        <div class="hv" id="hv">
+          <div class="hv-head mono"><span>Human check</span><span id="hvstate">pod pending</span></div>
+          <label class="hv-track" for="hvrange">
+            <span class="hv-fill" id="hvfill"></span>
+            <span class="hv-text mono" id="hvtext">Slide to deploy →</span>
+            <input type="range" id="hvrange" min="0" max="100" value="0" aria-label="Slide to the end to confirm you are human">
+          </label>
+        </div>
+        <button class="btn primary" type="submit" id="fsend" disabled>Send message</button>
         <p class="fmsg mono" id="fmsg" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -1467,22 +1547,35 @@ main{overflow-x:clip}
 })();
 </script>
 <script>
-/* ===== Contact form (FormSubmit, with Google reCAPTCHA) =====
-   After activation, replace your email in FORM_ACTION with the random
-   string FormSubmit emails you, e.g. "https://formsubmit.co/a1b2c3d4e5f6"  */
-var FORM_ACTION = "https://formsubmit.co/qasimsultani11@gmail.com";
+/* ===== Contact form (FormSubmit AJAX: no redirect, email never in the address bar) =====
+   Replace YOUR_RANDOM_STRING with the random string from FormSubmit's email,
+   e.g. "https://formsubmit.co/ajax/a1b2c3d4e5f6..."                      */
+var FORM_ENDPOINT = "https://formsubmit.co/ajax/YOUR_RANDOM_STRING";
 (function(){
   var f=document.getElementById("cform"), msg=document.getElementById("fmsg"), btn=document.getElementById("fsend");
-  f.action=FORM_ACTION;
-  document.getElementById("fnext").value=location.origin+location.pathname+"?sent=1";
+  var r=document.getElementById("hvrange"), fill=document.getElementById("hvfill"), txt=document.getElementById("hvtext"), st=document.getElementById("hvstate"), hv=document.getElementById("hv");
+  var t0=Date.now(), human=false, moves=0;
   document.querySelectorAll("[data-topic]").forEach(function(a){a.addEventListener("click",function(){document.getElementById("topic").value=a.dataset.topic;});});
   function say(t,c){msg.textContent=t;msg.className="fmsg mono "+(c||"");}
+  r.addEventListener("input",function(){
+    moves++; var v=+r.value; fill.style.width=v+"%";
+    if(v>=98&&moves>3){human=true;r.value=100;fill.style.width="100%";r.disabled=true;hv.classList.add("ok");txt.textContent="✓ Verified · ready to send";st.textContent="pod running";btn.disabled=false;}
+  });
+  r.addEventListener("change",function(){if(!human){r.value=0;fill.style.width="0";moves=0;}});
   f.addEventListener("submit",function(e){
+    e.preventDefault();
     var d=new FormData(f);
-    if(d.get("_honey")){e.preventDefault();return;}
+    if(d.get("_honey"))return;
+    if(!human||Date.now()-t0<4000){say("Please complete the human check first.","err");return;}
     var email=(d.get("email")||"").trim(), name=(d.get("name")||"").trim(), m=(d.get("message")||"").trim();
-    if(!name||!m||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){e.preventDefault();say("Please add your name, a valid email, and a message.","err");return;}
-    btn.disabled=true; say("$ verifying you're human…");
+    if(!name||!m||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say("Please add your name, a valid email, and a message.","err");return;}
+    if(/(https?:\/\/[^\s]+.*){3,}/i.test(m)){say("Please remove extra links from your message.","err");return;}
+    if(FORM_ENDPOINT.indexOf("YOUR_RANDOM_STRING")>-1){say("The form isn't connected yet. Please message me on LinkedIn for now.","err");return;}
+    btn.disabled=true; say("$ kubectl apply -f message.yaml …");
+    fetch(FORM_ENDPOINT,{method:"POST",body:d,headers:{Accept:"application/json"}})
+      .then(function(res){return res.json().then(function(j){if(!res.ok||String(j.success)==="false")throw 0;});})
+      .then(function(){f.reset();say("");var t=document.getElementById("thanks");t.hidden=false;document.body.style.overflow="hidden";setTimeout(function(){document.getElementById("thx-back").focus();},50);})
+      .catch(function(){say("Couldn't send right now. Please message me on LinkedIn instead.","err");btn.disabled=false;});
   });
   if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("svg.arch").forEach(function(sv){try{sv.pauseAnimations();}catch(e){}});}
 })();
@@ -1627,6 +1720,53 @@ var FORM_ACTION = "https://formsubmit.co/qasimsultani11@gmail.com";
   document.addEventListener("mousemove",function(e){if(root.getAttribute("data-skin")!=="blueprint")return;mx=e.clientX;my=e.clientY;q();},{passive:true});
   document.addEventListener("mouseleave",function(){mx=-999;my=-999;q();});
   window.addEventListener("scroll",function(){if(root.getAttribute("data-skin")==="blueprint")q();},{passive:true});
+})();
+</script>
+<script>
+(function(){
+  var cv=document.getElementById("bpnet"); if(!cv)return;
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches; if(reduce)return;
+  var ctx=cv.getContext("2d"), W,H,dpr=Math.min(window.devicePixelRatio||1,2), G=120, pk=[], rings=[], last=0, run=true;
+  var bg=cv.parentElement;
+  function size(){W=window.innerWidth;H=window.innerHeight;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+"px";cv.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=W<700?7:16; pk=[];for(var i=0;i<n;i++)pk.push(spawn(true));}
+  /* canvas sits inside .bp-bg which is offset by -40px; compensate */
+  function spawn(rand){
+    var h=Math.random()<.5, cols=Math.ceil(W/G), rows=Math.ceil(H/G);
+    var p={h:h,dir:Math.random()<.5?1:-1,v:(70+Math.random()*130),len:60+Math.random()*90,amber:Math.random()<.75};
+    if(h){p.y=Math.floor(Math.random()*rows)*G;p.x=rand?Math.random()*W:(p.dir>0?-p.len:W+p.len);}
+    else{p.x=Math.floor(Math.random()*cols)*G;p.y=rand?Math.random()*H:(p.dir>0?-p.len:H+p.len);}
+    return p;
+  }
+  function frame(t){
+    if(!run)return; var dt=Math.min((t-last)/1000||0,.05); last=t;
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pk.length;i++){
+      var p=pk[i], d=p.v*dt*p.dir, px=p.x, py=p.y;
+      if(p.h)p.x+=d;else p.y+=d;
+      // turn at intersections
+      var onX=Math.floor(px/G)!==Math.floor(p.x/G), onY=Math.floor(py/G)!==Math.floor(p.y/G);
+      if((p.h&&onX)||(!p.h&&onY)){
+        var ix=p.h?Math.round(p.x/G)*G:p.x, iy=p.h?p.y:Math.round(p.y/G)*G;
+        if(Math.random()<.22){rings.push({x:ix,y:iy,r:2,a:.9});p.x=ix;p.y=iy;p.h=!p.h;p.dir=Math.random()<.5?1:-1;}
+      }
+      var c=p.amber?"255,200,87":"143,208,255";
+      var tx=p.h?p.x-p.dir*p.len:p.x, ty=p.h?p.y:p.y-p.dir*p.len;
+      var g=ctx.createLinearGradient(tx,ty,p.x,p.y); g.addColorStop(0,"rgba("+c+",0)"); g.addColorStop(1,"rgba("+c+",.95)");
+      ctx.strokeStyle=g; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(tx,ty); ctx.lineTo(p.x,p.y); ctx.stroke();
+      ctx.fillStyle="rgba("+c+",1)"; ctx.shadowColor="rgba("+c+",1)"; ctx.shadowBlur=12;
+      ctx.beginPath(); ctx.arc(p.x,p.y,2.6,0,6.3); ctx.fill(); ctx.shadowBlur=0;
+      if(p.x<-300||p.x>W+300||p.y<-300||p.y>H+300)pk[i]=spawn(false);
+    }
+    for(var k=rings.length-1;k>=0;k--){var r=rings[k]; r.r+=40*dt; r.a-=.9*dt;
+      if(r.a<=0){rings.splice(k,1);continue;}
+      ctx.strokeStyle="rgba(255,200,87,"+r.a+")"; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(r.x,r.y,r.r,0,6.3); ctx.stroke();
+      ctx.strokeRect(r.x-3,r.y-3,6,6);}
+    requestAnimationFrame(frame);
+  }
+  size(); window.addEventListener("resize",size);
+  document.addEventListener("visibilitychange",function(){run=!document.hidden;if(run){last=performance.now();requestAnimationFrame(frame);}});
+  requestAnimationFrame(frame);
 })();
 </script>
 </body>
