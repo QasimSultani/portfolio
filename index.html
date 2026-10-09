@@ -251,7 +251,7 @@ main{overflow-x:clip}
 @media (max-width:1000px){.cwrap{grid-template-columns:1fr}.expect{position:relative;top:0}.zsteps{grid-template-columns:repeat(3,1fr);row-gap:24px}.zsteps::before,.zsteps::after{display:none}}
 @media (max-width:620px){.adv{grid-template-columns:1fr}.zsteps{grid-template-columns:1fr}.zero{padding:22px}}
 
-/* Workshops */
+/* speaking */
 .talk{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-bottom:16px}
 .talk.two{grid-template-columns:1fr 1.1fr}
 .gallery{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr;gap:12px;min-height:420px}
@@ -554,7 +554,7 @@ html[data-look="a"] #ai{background:radial-gradient(800px 380px at 85% 0%,rgba(12
 .ai-cards p{margin:0;color:var(--muted);font-size:14.5px}
 .ai-proof{margin:22px 0 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--ink-soft)}
 @media (max-width:1000px){.ai-grid{grid-template-columns:1fr}}
-@media (max-width:1280px){.nav a[href="#stack"],.nav a[href="#Workshops"],.nav a[href="#career"]{display:none}}
+@media (max-width:1280px){.nav a[href="#stack"],.nav a[href="#talks"],.nav a[href="#career"]{display:none}}
 </style>
 </head>
 <body>
@@ -585,7 +585,7 @@ html[data-look="a"] #ai{background:radial-gradient(800px 380px at 85% 0%,rgba(12
       <a href="#stack"><i>03</i>Stack</a>
       <a href="#ai"><i>04</i>AI</a>
       <a href="#consulting"><i>05</i>Consulting</a>
-      <a href="#Workshops"><i>06</i>Workshops</a>
+      <a href="#talks"><i>06</i>Talks</a>
       <a href="#contact"><i>07</i>Contact</a>
     </nav>
     <a class="btn btn-primary hire" href="#contact" data-topic="Free 30-minute consultation"><span class="live-dot" aria-hidden="true"></span>Hire me</a>
@@ -836,17 +836,17 @@ html[data-look="a"] #ai{background:radial-gradient(800px 380px at 85% 0%,rgba(12
     </div>
   </section>
 
-  <!-- Workshops -->
-  <section class="sec" id="Workshops">
+  <!-- TALKS -->
+  <section class="sec" id="talks">
     <div class="wrap">
-      <div class="head reveal"><p class="kicker mono">Public Workshops</p><h2>On stage.</h2><p>I share what I learn running production platforms with students and new engineers.</p></div>
+      <div class="head reveal"><p class="kicker mono">Talks &amp; workshops</p><h2>On stage.</h2><p>I share what I learn running production platforms with students and new engineers.</p></div>
       <div class="talk reveal">
         <div class="gallery">
           <button type="button" class="ph big" aria-label="Enlarge photo: Qasim presenting at ILMA University"><img data-img="talk" alt="Qasim presenting the DevOps and Kubernetes session at ILMA University"></button>
-          <button type="button" class="ph" aria-label="Enlarge the event poster"><img data-img="poster" alt="ILMA University poster: guest speaker session on DevOps and Kubernetes by Muhammad Qasim Sultani"></button>
+          <button type="button" class="ph" aria-label="Enlarge the event poster"><img data-img="poster" alt="ILMA University poster: guest session on DevOps and Kubernetes by Muhammad Qasim Sultani"></button>
           <button type="button" class="ph" aria-label="Enlarge audience photo"><img data-img="aud" alt="Students attending the session in a full lecture room"></button>
         </div>
-        <div class="tcard"><div class="tmeta mono"><span>April 2026</span><span>Guest speaker</span><span>3-hour session</span></div><h3>DevOps and Kubernetes</h3><p class="where2">ILMA University, Karachi · Faculty of Management Sciences, Gulshan Campus</p><p>How DevOps practices and Kubernetes help teams build, deploy, and run reliable, scalable systems, with real examples from production banking platforms.</p></div>
+        <div class="tcard"><div class="tmeta mono"><span>April 2026</span><span>Guest talk</span><span>3-hour session</span></div><h3>DevOps and Kubernetes</h3><p class="where2">ILMA University, Karachi · Faculty of Management Sciences, Gulshan Campus</p><p>How DevOps practices and Kubernetes help teams build, deploy, and run reliable, scalable systems, with real examples from production banking platforms.</p></div>
       </div>
       <div class="talk two reveal">
         <div class="gallery g2">
@@ -855,7 +855,7 @@ html[data-look="a"] #ai{background:radial-gradient(800px 380px at 85% 0%,rgba(12
         </div>
         <div class="tcard"><div class="tmeta mono"><span>November 2022</span><span>Trainer</span><span>Certified session</span></div><h3>Awareness on DevOps and Roadmap</h3><p class="where2">Sir Syed University of Engineering and Technology, Karachi · Continuing Education Programme</p><p>A training session for the Computer Engineering batch on what DevOps is, the core tools, and a practical roadmap to a first DevOps role.</p></div>
       </div>
-      <p class="invite reveal">Want a talk or workshop for your university, team, or event? <a href="#contact" data-topic="Workshops invitation">Invite me to speak →</a></p>
+      <p class="invite reveal">Want a talk or workshop for your university, team, or event? <a href="#contact" data-topic="Talk or workshop invitation">Invite me for a talk →</a></p>
     </div>
   </section>
 
@@ -884,7 +884,7 @@ html[data-look="a"] #ai{background:radial-gradient(800px 380px at 85% 0%,rgba(12
         <div class="fhead mono"><span>contact.yaml</span><span class="badge"><span class="live-dot" aria-hidden="true"></span>online</span></div>
         <label>Your name<input name="name" autocomplete="name" required></label>
         <label>Your email<input name="email" type="email" autocomplete="email" required placeholder="you@company.com"></label>
-        <label>What is it about?<select name="topic" id="topic"><option>Full-time role</option><option>Free 30-minute consultation</option><option>1:1 session (individual)</option><option>Company project</option><option>Zero-to-production build</option><option>AI / LLM infrastructure</option><option>Infrastructure design or review</option><option>Workshops invitation</option><option>Something else</option></select></label>
+        <label>What is it about?<select name="topic" id="topic"><option>Full-time role</option><option>Free 30-minute consultation</option><option>1:1 session (individual)</option><option>Company project</option><option>Zero-to-production build</option><option>AI / LLM infrastructure</option><option>Infrastructure design or review</option><option>Talk or workshop invitation</option><option>Something else</option></select></label>
         <label>Message<textarea name="message" rows="4" required placeholder="A few lines about the role or project"></textarea></label>
         <input type="hidden" name="_subject" value="New message from your portfolio website">
         <input type="hidden" name="_template" value="table">
